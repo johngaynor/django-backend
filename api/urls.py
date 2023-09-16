@@ -5,5 +5,6 @@ from . import views
 # url configuration, always end routes with '/'
 urlpatterns = [
     path('', views.home, name='home'),  # root path URL
-    path('hello/', views.say_hello)
+    path('hello/', views.say_hello),
+    path('autocategory/', views.auto_category)
 ]
