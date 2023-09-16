@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+ENV/
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# User-uploaded files
+media/
+
+# Logs and Temporary Files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Dependency and Environment Files
+Pipfile.lock
+node_modules/
+yarn-error.log
+
+# IDE and Editor Files
+.vscode/
+.idea/
+.pycharm/
+.vscode/
+.vim/
+
+# Compiled Frontend Assets
+dist/
+build/
+
+# Django Migration Files
+/migrations/*.py
+/migrations/*.pyc
+
+# Local Settings Files
+settings_local.py
+
+# Sensitive Data Files
+secrets.json
