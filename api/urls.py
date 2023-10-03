@@ -22,5 +22,6 @@ keys = [gasKeys, travelKeys, groceryKeys, recKeys, schoolKeys,
 urlpatterns = [
     path('', views.home, name='home'),  # root path URL
     path('hello/', views.say_hello),
-    path('autocategory/', views.auto_category, {'keys': keys})
+    path('autocategory/', views.auto_category, {'keys': keys}),
+    path('testget/', views.test_get)
 ]

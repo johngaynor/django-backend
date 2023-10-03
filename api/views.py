@@ -6,7 +6,20 @@ from django.http import HttpResponse, JsonResponse
 
 
 def say_hello(request):
-    return HttpResponse('Hello world')
+    try:
+        if request.method == 'POST' and 'csv_file' in request.FILES:
+            uploaded_file = request.FILES['csv_file']
+
+            # handle sorting operations
+            return JsonResponse({'success': 'csv has been processed'})
+        else:
+            return JsonResponse({'error': 'Invalid request'})
+    except Exception as e:
+        return JsonResponse({'error': str(e)})
+
+
+def test_get(request):
+    return JsonResponse({'success': 'get route works'})
 
 
 def home(request):
