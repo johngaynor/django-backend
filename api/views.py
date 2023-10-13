@@ -1,21 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.middleware import csrf
+from django.shortcuts import render
+import json
 
 # Create your views here.
 # request -> returns response (request handler, action)
 
 
-def say_hello(request):
-    try:
-        if request.method == 'POST' and 'csv_file' in request.FILES:
-            uploaded_file = request.FILES['csv_file']
+def csrf(request):
+    return render(request, 'csrf_token_page.html')
 
-            # handle sorting operations
-            return JsonResponse({'success': 'csv has been processed'})
+
+def test_post(request):
+    if request.method == 'POST':
+        data = json.loads(request.body.decode('utf-8'))
+        if data is not None:
+            return JsonResponse({'data': data['data'] + 3})
         else:
-            return JsonResponse({'error': 'Invalid request'})
-    except Exception as e:
-        return JsonResponse({'error': str(e)})
+            return JsonResponse({'error': 'Parameter "data" not found in the request'})
+    else:
+        return JsonResponse({'error': 'Invalid request method'})
 
 
 def test_get(request):
@@ -24,17 +29,6 @@ def test_get(request):
 
 def home(request):
     return render(request, 'hello.html', {'name': 'John'})
-
-
-def auto_category(request):
-    if request.method == 'POST' and 'csv_file' in request.FILES:
-        uploaded_file = request.FILES['csv_file']
-
-        # handle sorting operations
-        return JsonResponse({'success': 'csv has been processed'})
-    else:
-        return JsonResponse({'error': 'Invalid request'})
-
 
 # files can be accessed via request.FILES.['filename]
 # params accessed via request.GET, which returns a dictionary of all parameters

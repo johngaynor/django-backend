@@ -21,7 +21,7 @@ keys = [gasKeys, travelKeys, groceryKeys, recKeys, schoolKeys,
 # url configuration, always end routes with '/'
 urlpatterns = [
     path('', views.home, name='home'),  # root path URL
-    path('hello/', views.say_hello),
-    path('autocategory/', views.auto_category, {'keys': keys}),
-    path('testget/', views.test_get)
+    path('testpost/', views.test_post),
+    path('testget/', views.test_get),
+    path('csrf/', views.csrf)
 ]
