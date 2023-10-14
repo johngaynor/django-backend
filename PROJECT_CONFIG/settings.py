@@ -80,7 +80,6 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
-    'csrftoken'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
